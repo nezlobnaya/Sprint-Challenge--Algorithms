@@ -14,7 +14,8 @@ c) O(n)
  It goes down by 1 every time so it will reach n in the same number of runs. Steps required increase with the number of inputs.
 
 ## Exercise II
-
+ What we're doing is searching for the highest floor on which the egg won't get broken, 
+ we want to find it with lowest number of eggs dropped and broken. Because the floors are sorted, we can use a binary search algorithm to do this.
 
 
 
