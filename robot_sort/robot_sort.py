@@ -92,12 +92,56 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+#Solution I, though fails with test_stretch
+    # def sort(self):
+    #     """
+    #     Sort the robot's list.
+    #     """
+    #     # Fill this out
+    #     self.set_light_on() # initialize to get started
+    #     while self.light_is_on(): #if the sorting is complete the light doesn't get turned on again
+    #         self.set_light_off() # start with light off
+    #         while self.can_move_right():
+    #             self.swap_item() # pick up item
+    #             self.move_right() 
+    #             if self.compare_item() == 1:
+    #                 self.swap_item()
+    #                 self.set_light_on() # turn light on because we swapped
+    #             self.move_left()
+    #             self.swap_item() # drop item, whether swapped or not
+    #             self.move_right()
+    #         # For moving back to the beginning
+    #         if not self.can_move_right():
+    #             while self.can_move_left():
+    #                 self.move_left()
+
+
+#Solution II
     def sort(self):
         """
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        while True:
+            self.swap_item()
+            while self.can_move_right() == True:
+                self.move_right()        
+                
+                if self.compare_item() is not None and self.compare_item() == 1:
+                    self.swap_item()
+
+            while self.can_move_left():
+                self.move_left()
+
+            while self.can_move_right() and self.compare_item() is not None:                
+                self.move_right()
+            
+            self.swap_item()
+            self.move_right()
+                    
+            if self.can_move_right() == False:
+                break
+
 
 
 if __name__ == "__main__":
